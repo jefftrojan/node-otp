@@ -1,8 +1,10 @@
 .form {
-  width: 290px;
-  height: 380px;
+  width: 380px;
+  height: 500px;
   display: flex;
   flex-direction: column;
+  align-self: center;
+  align-content: center;
   border-radius: 15px;
   background-color: white;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -25,7 +27,7 @@
 .check {
   position: relative;
   align-self: center;
-  top: 4em;
+
 }
 
 .input {
@@ -33,14 +35,14 @@
   width: 2.5em;
   height: 2.5em;
   margin: 1em;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   outline: none;
   background-color: rgb(235, 235, 235);
   box-shadow: inset 3px 3px 6px #d1d1d1,
             inset -3px -3px 6px #ffffff;
   top: 6.5em;
-  left: 1.5em;
+  left: 3.2em;
   padding-left: 15px;
   transition: .4s ease-in-out;
 }
@@ -57,40 +59,77 @@
   background-color: lightgrey;
 }
 
-.btn1 {
-  position: relative;
-  top: 8.5em;
-  left: 2.4em;
-  width: 17em;
-  height: 3em;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  transition: .4s ease-in-out;
-  box-shadow: 1px 1px 3px #b5b5b5,
-             -1px -1px 3px #ffffff;
-}
 
-.btn1:active {
-  box-shadow: inset 3px 3px 6px #b5b5b5,
-            inset -3px -3px 6px #ffffff;
-}
-
-.btn2 {
+.btn {
+  
+  --btn-color: rgba(13, 241, 21, 0.508);
   position: relative;
   top: 9.5em;
-  left: 2.4em;
+  border: .25em solid var(--glow-color);
+  padding: 1em 2em;
+  align-self: center;
   width: 17em;
   height: 3em;
   border-radius: 5px;
+  
   border: none;
   outline: none;
   transition: .4s ease-in-out;
+  background-color: var(--btn-color);
+
   box-shadow: 1px 1px 3px #b5b5b5,
              -1px -1px 3px #ffffff;
 }
 
-.btn2:active {
-  box-shadow: inset 3px 3px 6px #b5b5b5,
-            inset -3px -3px 6px #ffffff;
+.btn:hover {
+  color: #000;
+  --glow-color: rgb(176, 255, 189);
+  --glow-spread-color: rgba(189, 228, 200, 0.781);
+  --enhanced-glow-color: rgb(182, 175, 71);
+  background-color: var(--glow-color);
+  box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+.btn:active {
+  box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
+
+.btn::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: .7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+.btn2 {
+
+  --btn-color: rgba(180, 180, 180, 0.508);
+  position: relative;
+  top: 9.5em;
+  border: none;
+  padding: 1em 2em;
+  align-self: center;
+  width: 17em;
+  height: 3em;
+  border-radius: 5px;
+  
+  border: none;
+  outline: none;
+  
+  background-color: var(--btn-color);
+
+}
+.btn2:hover{
+  background-color: #504e4e;
+  cursor: pointer;
 }
